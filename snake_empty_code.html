@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+    <style>
+        /*CSS takes care of the aesthetics of the webpage*/
+        body {
+            text-align: center;
+        }
+        #title {
+            font-size: 40px;
+            font-weight: bold;
+            color: rgb(64, 92, 64)
+        }
+    </style>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport",
+            content="width=device-width, initial-scale=1.0">
+        <title>Snake Game</title>
+    </head>
+ 
+    <body>
+        <!--h1 creates a heading where we can put text-->
+        <h1 id = "title">Snake Game</h1>
+        <!--canvas creates the box that will eventually become our snake game!-->
+        <canvas id="board"></canvas>
+    </body>
+
+    <script>
+
+        // Create variables for the block Size, Total # of Rows, and Total # of Columns
+        
+        
+        // Create variables for the board and its stylistic elements. 
+
+
+        // Create variables to hold the snake's x and y positions.
+
+        
+        // Create variables to set the total number of rows and columns
+
+        // Create variables to set the snake's speed velocities
+            //speed of snake in x coordinate.
+            //speed of snake in Y coordinate.
+        
+        // Create more variables for the snake's body, the food's x and y positions, and for the game's status.
+
+        
+        window.onload = function () {
+            // Set board height and width, create the board
+        
+
+            // Call a funciton to place the first food item.
+            // Add an event listener that listens for the player pressing an arrow key. Then call a function that will change the snake's direction.
+           
+
+            // Set snake speed
+        }
+        
+        // Create a method that holds the functionality for the snake's movement. This function should:
+            // Check if the game has ended before the snake moves
+            // Create the game board, including the colors of the background, snake, apple, and the board's size.
+            // Place a new apple after the snake eats one.
+            // Add to the snake's body after it eats
+            // Add conditions for the game to end, such as the snake hitting a wall or itself.
+        function update() {
+
+            // Checks for the game to be over, and ends the function
+            
+            // Set the board's background color
+
+            // Fill the board with a rectangle with the same dimensions as the board
+        
+            // Set food color and position
+
+            // Create the first food block 
+        
+
+            // Check for when the snake's position matches the apple's.
+            // This code should add a block to the end of the snake's body and create a new food item from our "placeFood" function        
+            // Create code to extend the snake's body
+
+        
+
+            // Create code to draw the snake's body. This should use the snake's position variables and a for loop.
+            // Make sure to update the board to display the snake.
+
+        
+            // Create conditions for the game to end, such as the snake hitting a wall or itself. Make sure to opdate the game status variable to end the game.
+        }
+        
+        // Create a function to change the direction of the snake
+        function changeDirection(e) {
+        }
+        
+        // Create a helper function to Randomly place food
+        function placeFood() {
+        }
+    </script>
+</html>

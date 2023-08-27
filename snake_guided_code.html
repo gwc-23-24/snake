@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+    <style>
+        /*CSS takes care of the aesthetics of the webpage*/
+        body {
+            text-align: center;
+        }
+        #title {
+            font-size: 40px;
+            font-weight: bold;
+            color: rgb(64, 92, 64)
+        }
+    </style>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport",
+            content="width=device-width, initial-scale=1.0">
+        <title>Snake Game</title>
+    </head>
+ 
+    <body>
+        <!--h1 creates a heading where we can put text-->
+        <h1 id = "title">Snake Game</h1>
+        <!--canvas creates the box that will eventually become our snake game!-->
+        <canvas id="board"></canvas>
+    </body>
+
+    <script>
+
+        // Create variables for the block Size, Total # of Rows, and Total # of Columns
+        
+        var blockSize = ; //size of each square
+        var total_row = ; //total row number
+        var total_col = ; //total column number
+        
+        
+        var board;
+        var context;
+        
+        var snakeX = blockSize * 5;
+        var snakeY = blockSize * 5;
+        
+        // Set the total number of rows and columns
+
+
+        var speedX = 0;  //speed of snake in x coordinate.
+        var speedY = 0;  //speed of snake in Y coordinate.
+        
+        var snakeBody = [];
+        
+        var foodX;
+        var foodY;
+        
+        var gameOver = false;
+        
+        window.onload = function () {
+            // Set board height and width
+
+            
+            board = document.getElementById("board");
+
+            // These variables should be defined as products of the board size and the size of each block.
+            board.height = ;
+            board.width = ;
+            context = board.getContext("2d");
+        
+            // Call a funciton to place the first food item.
+            // Add an event listener that listens for the player pressing an arrow key. Then call a function that will change the snake's direction.
+           
+            placeFood();
+            document.addEventListener( , );  //for movements
+
+            // Set snake speed
+            setInterval(update, 100);
+        }
+        
+        // Create a method that holds the functionality for the snake's movement. This function should:
+            // Check if the game has ended before the snake moves
+            // Create the game board, including the colors of the background, snake, apple, and the board's size.
+            // Place a new apple after the snake eats one.
+            // Add to the snake's body after it eats
+            // Add conditions for the game to end, such as the snake hitting a wall or itself.
+        function update() {
+
+            // Checks for the game to be over, and ends the function
+            if (gameOver) {
+                // This code should stop the function from continuing
+            }
+        
+            // Background of a Game
+            context.fillStyle = "";
+
+            // The missing parameters should be the size of the board. 
+            context.fillRect(0, 0, , );
+        
+            // Set food color and position
+            context.fillStyle = "";
+
+            // The missing parameters should be the size of the food block. 
+            context.fillRect(foodX, foodY, , );
+        
+
+            // The missing condition should check if the snake's y position matches the apple's.
+            if (snakeX == foodX &&  == ) {
+                // This code should add a block to the end of the snake's body and create a new food item from our "placeFood" function
+            }
+        
+            // This for loop updates the array for the body of the snake to include the new block.
+            for (let i = snakeBody.length - 1; i > 0; i--) {
+
+                snakeBody[i] = snakeBody[i - 1];
+            }
+            if (snakeBody.length) {
+                snakeBody[0] = [snakeX, snakeY];
+            }
+        
+
+            // This code updates the visuals for the new snake
+            context.fillStyle = "white";
+
+            // The missing part of the products below should be the speed of the snake object in the x and y directions.
+            snakeX +=  * blockSize; // updating Snake position in X coordinate.
+            snakeY +=  * blockSize;  // updating Snake position in Y coordinate.
+
+            context.fillRect(snakeX, snakeY, blockSize, blockSize);
+
+            // This for loop draws the snake's body at each of its blocks.
+            for (let i = 0; i < snakeBody.length; i++) {
+                context.fillRect(/*snake block's x position*/, /*snake block's y position*/, blockSize, blockSize);
+            }
+        
+            // This code should check if the snake hits any of the board's walls.
+            if (snakeX < // Left wall
+                || snakeX > // Right wall
+                || snakeY < // Top wall
+                || snakeY > // Bottom wall
+                ) {
+                
+                // Out of bound condition
+                gameOver = true;
+                alert("Game Over");
+            }
+        
+            // This code should check if the snake enters its own body
+            for (let i = 0; i < snakeBody.length; i++) {
+                if (snakeX == /*The snake's x position at x = i*/ && snakeY == /*The snake's y position at y = i*/) {
+                    
+                    // Snake eats own body
+                    //Set the game-over variable to true.
+                    alert("Game Over");
+                }
+            }
+        }
+        
+        // Movement of the Snake - We are using addEventListener
+        function changeDirection(e) {
+
+            if (e.code == /*Arrow Up Key here*/ && speedY != 1) {
+                // The speed of the x should be set to 0 and the speed of the y should be set to -1.
+
+            }
+            else if (e.code == /*Arrow Down Key here*/ && speedY != -1) {
+                // The speed of the x should be set to 0 and the speed of the y should be set to 1.
+
+            }
+            else if (e.code == /*Arrow Left Key here*/ && speedX != 1) {
+                // The speed of the x should be set to -1 and the speed of the y should be set to 0.
+
+            }
+            else if (e.code == /*Arrow Right Key here*/ && speedX != -1) {
+                // The speed of the x should be set to 1 and the speed of the y should be set to 0.
+
+            }
+        }
+        
+        // Create a helper function to Randomly place food
+        function placeFood() {
+        
+            // set the foodX postion to a random integer within the board's range.
+            // Hint: use Math.random()
+            foodX = ;
+            
+            // Do the same for the y position
+            foodY = ;
+        }
+    </script>
+</html>
